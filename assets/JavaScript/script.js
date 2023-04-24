@@ -21,13 +21,18 @@ function generatePassword() {
   console.log("Password length: " + passwordLength)
   
   var choiceLower = confirm("Would you like your password to include lowercase characters?")
-  console.log(choiceLower)
+  console.log("Inludes lowercase characters: " + choiceLower)
   var choiceUpper = confirm("Would you like your password to include uppercase characters?")
-  console.log(choiceUpper)
+  console.log("Inludes uppercase characters: " + choiceUpper)
   var choiceNum = confirm("Would you like your password to include numbers?")
-  console.log(choiceNum)
+  console.log("Inludes numbers: " + choiceNum)
   var choiceSpecial = confirm("Would you like your password to include special characters?")
-  console.log(choiceSpecial)
+  console.log("Inludes special characters: " + choiceSpecial)
+
+  if (!choiceLower && !choiceUpper && !choiceNum && !choiceSpecial) {
+    window.alert("Please choose at least one character type")
+    return
+  }
 }
 
 // Write password to the #password input

@@ -11,13 +11,10 @@ var charSpecial = ["\u0020","\u0021","\u0022","\u0023","\u0024","\u0025","\u0026
 function generatePassword() {
   var passwordLength = Number(prompt("Choose a length for your password between 8 and 128 characters"))
   // Limit accepted inputs to between 8 and 128 inclusive and reject non numerical inputs
-  if (passwordLength < 8 || passwordLength > 128) {
+  while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
     window.alert("Invalid input, please choose a number between 8 and 128")
-    return
-  } else if (isNaN(passwordLength)) {
-    window.alert("Invalid input, please choose a number between 8 and 128")
-    return
-  }
+    var passwordLength = Number(prompt("Choose a length for your password between 8 and 128 characters"))
+  } 
   console.log("Password length: " + passwordLength)
   
   var choiceLower = confirm("Would you like your password to include lowercase characters?")
@@ -29,9 +26,12 @@ function generatePassword() {
   var choiceSpecial = confirm("Would you like your password to include special characters?")
   console.log("Inludes special characters: " + choiceSpecial)
 
-  if (!choiceLower && !choiceUpper && !choiceNum && !choiceSpecial) {
+  while (!choiceLower && !choiceUpper && !choiceNum && !choiceSpecial) {
     window.alert("Please choose at least one character type")
-    return
+    var choiceLower = confirm("Would you like your password to include lowercase characters?")
+    var choiceUpper = confirm("Would you like your password to include uppercase characters?")
+    var choiceNum = confirm("Would you like your password to include numbers?")
+    var choiceSpecial = confirm("Would you like your password to include special characters?")
   }
 }
 

@@ -47,4 +47,4 @@ THEN the password is either displayed in an alert or written to the page
 
 ## Deployed Webpage
 
-The published page is available here: 
+The published page is available here: https://olivercray.github.io/week-3-password-generator-challenge/

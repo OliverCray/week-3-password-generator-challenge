@@ -49,7 +49,7 @@ function generatePassword() {
   if (choiceSpecial) {
     charTypes = charTypes.concat(charSpecial)
   }
-  console.log(charTypes)  
+  console.log("Selected charTpes: " + charTypes)  
 
   var generatedPassword = ""
 
@@ -68,7 +68,18 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+}
 
+// Copy password to the clipboard from #password input
+function copyPassword() {
+  var copyPass = document.querySelector("#password")
+
+  copyPass.select()
+
+  navigator.clipboard.writeText(copyPass.value)
+
+  window.alert("Password copied to clipboard")
+  console.log(copyPass.value)
 }
 
 // Add event listener to generate button

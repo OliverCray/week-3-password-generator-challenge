@@ -33,9 +33,22 @@ function generatePassword() {
     return
   }
 
-  // Array to hold the password
+  // Stores the chosen character types
   var charTypes = []
-
+  
+  if (choiceLower) {
+    charTypes = charTypes.concat(charLower)  
+  } 
+  if (choiceUpper) {
+    charTypes = charTypes.concat(charUpper)
+  } 
+  if (choiceNum) {
+    charTypes = charTypes.concat(charNum)
+  } 
+  if (choiceSpecial) {
+    charTypes = charTypes.concat(charSpecial)
+  }
+  console.log(charTypes)  
 
 }
 

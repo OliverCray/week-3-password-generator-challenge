@@ -27,7 +27,7 @@ function generatePassword() {
   var choiceSpecial = confirm("Would you like your password to include special characters?")
   console.log("Inludes special characters: " + choiceSpecial)
 
-  // Re-prompt the user if they select no for all character types
+  // Alert user if no character types are chosen
   if (!choiceLower && !choiceUpper && !choiceNum && !choiceSpecial) {
     window.alert("Please choose at least one character type")
     return
@@ -50,6 +50,15 @@ function generatePassword() {
   }
   console.log(charTypes)  
 
+  var generatedPassword = ""
+
+  // Generates password from chosen criteria
+  for (var i = 0; i < passwordLength; i++) {
+    generatedPassword = generatedPassword + charTypes[Math.floor(Math.random() * charTypes.length)]
+  }
+
+  console.log(generatedPassword)
+  return generatedPassword
 }
 
 // Write password to the #password input
